@@ -1,0 +1,12 @@
+analyse
+asset*
+dataset
+.idea
+*.log
+*E*.pth
+*latest.pth
+neko_2021_mjt/debug_and_visualize/logs/HeD
+neko_2021_mjt/debug_and_visualize/logs/MD
+neko_2021_mjt/debug_and_visualize/logs/OCR
+build-*
+__pycache__
