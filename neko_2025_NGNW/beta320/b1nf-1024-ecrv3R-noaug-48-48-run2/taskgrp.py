@@ -1,5 +1,5 @@
 from neko_2025_NGNW.common.object_32x_presets.tasks.taskgrps.egptv3 import arm_egptology_v3R_task_grp
-from neko_2025_NGNW.common.object_32x_presets.tasks.taskgrps.headless_lsct import arm_lsctcXL_no_jpnmlt_no_kr_task_grp
+#from neko_2025_NGNW.common.object_32x_presets.tasks.taskgrps.headless_lsct import arm_lsctcXL_no_jpnmlt_no_kr_task_grp
 
 def arm_taskgrp(pcfg,tome):
     # tome=arm_ctwch_task_grp(pcfg,tome,True);
