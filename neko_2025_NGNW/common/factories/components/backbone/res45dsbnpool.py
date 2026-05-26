@@ -3,12 +3,10 @@ from neko_sdk.chunked_FE.res45.res45G2 import neko_r45_layers_origNG, neko_r45_n
 from neko_2025_NGNW.common.object_32x_presets.var_names import project_32x_varnames as VN
 from neko_2025_NGNW.common.object_32x_presets.mod_names import project_32x_modnames as MN
 from neko_2025_NGNW.common.object_32x_presets.agt_names import project_32x_agtnames as AN
-from neko_sdk.neko_framework_NG.names import P
 
 from neko_sdk.chunked_FE.res45.res45g4.res45_g4_g2ish import neko_res45_bogo_g4_g2ish, neko_res45_bogo_g4_g2ish_nf
 from neko_2025_NGNW.common.object_32x_presets.cfgutil import virtual_agt_factory, virtual_mod_factory,virtual_part_factory,global_mod_cfg
-from neko_sdk.cfgtool.platform_cfg import neko_platform_cfg
-from neko_sdk.chunked_FE.res45.res45g4.res45g4_ffn import neko_res45_bogo_g4_g2ish_ffn_last
+
 from neko_sdk.neko_framework_NG.UAE.neko_agent_wrapping_agent import neko_agent_wrapping_agent as awa
 from neko_sdk.neko_framework_NG.libimfe.agents.unified_im_fe_agent import imfe_NG_sub
 class neko_res45_backbone_mod_factory_abstract(virtual_mod_factory):
@@ -111,8 +109,8 @@ class neko_res45_backbone_agt_factory(virtual_agt_factory):
 
 # look, we do this bcs sometime we only want to change how modules are configured or agents (how mods are called), not both at the same time.
 class neko_res45dsbn_fe_nf_part_factory(virtual_part_factory):
-    def setup_factroies(this):
-        super().setup_factroies();
+    def setup_factories(this):
+        super().setup_factories();
         this.set_backbone_daemon_factories();
 
     # the backbone factory has to be globally held to keep track of shared backbone layers.

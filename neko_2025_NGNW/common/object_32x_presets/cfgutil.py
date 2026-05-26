@@ -130,7 +130,7 @@ class virtual_part_factory(virtual_mod_factory):
     def __init__(this, platform_cfg: neko_platform_cfg,gmodcfg:global_mod_cfg, params):
         super().__init__(gmodcfg,params);
         this.platform_cfg = platform_cfg;
-        this.setup_factroies();
-    def setup_factroies(this):
+        this.setup_factories();
+    def setup_factories(this):
         pass;
 

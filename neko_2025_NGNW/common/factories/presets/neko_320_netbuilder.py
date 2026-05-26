@@ -29,28 +29,20 @@ from neko_2025_NGNW.common.object_32x_presets.templates.tome import (
 # Project-Specific Imports: Factories
 from neko_2025_NGNW.common.factories.presets.core import neko_object320_factory_core, neko_object320_factory_core_ffn, \
     neko_object320_factory_core_nf
-from neko_2025_NGNW.common.factories.presets.semseg_head import neko_dense_val_semseg_factory, \
-    neko_dese_val_semseg_factor_corr05, neko_dese_val_semseg_bga_factor_corr05
-from neko_2025_NGNW.common.factories.presets.ac_insseg_head import neko_first_gtlen_aux_cls_agnostic_insseg_factory
-from neko_2025_NGNW.common.factories.typical_parts.heads.osic_head_icb import neko_object320_osic_head_factory
+# from neko_2025_NGNW.common.factories.presets.semseg_head import neko_dense_val_semseg_factory, \
+#     neko_dese_val_semseg_factor_corr05, neko_dese_val_semseg_bga_factor_corr05
+# from neko_2025_NGNW.common.factories.presets.ac_insseg_head import neko_first_gtlen_aux_cls_agnostic_insseg_factory
+# from neko_2025_NGNW.common.factories.typical_parts.heads.osic_head_icb import neko_object320_osic_head_factory
 
 from neko_2025_NGNW.common.factories.typical_parts.heads.osic_head_icb import neko_object320_osic_head_factory
+
 from neko_2025_NGNW.common.factories.typical_parts.cross_task_training.xtcs import neko_cross_task_cos_sim_factory
 from neko_2025_NGNW.common.factories.components.debug.result_vis_factory import debug_vis_agent_factory
 from neko_2025_NGNW.common.factories.components.prototyper.as_proto import neko_as_prototype_factory
-from neko_2025_NGNW.common.factories.components.prototyper.id_tied_centers import neko_embedding_pool_aggr_part_factory
-from neko_2025_NGNW.common.factories.presets.seqcls_head import neko_lpos_roiseq_factoy, neko_ctc_roiseq_factory
+# from neko_2025_NGNW.common.factories.components.prototyper.id_tied_centers import neko_embedding_pool_aggr_part_factory
+# from neko_2025_NGNW.common.factories.presets.seqcls_head import neko_lpos_roiseq_factoy, neko_ctc_roiseq_factory
 from neko_2025_NGNW.common.factories.presets.im2vec import neko_object320_feitem_factory
-from neko_2025_NGNW.common.factories.presets.feseq import (
-    neko_object320_feseq_factory_cntr_sqz,
-    neko_object320_feseq_factory_abstract,
-    neko_object320_feseq_factory_cntr_asqz,
-    neko_object320_feseq_factory_cntr_lasqz,
-    neko_object320_feseq_wnaish_factory_cntr_lcam, neko_object320_feseq_wnaish_factory_cntr_lcamXA,
-    neko_object320_feseq_wnaish_factory_cntr_lcam_lsct_share_tfe_hack,
-    neko_object320_feseq_wnaish_factory_cntr_lcam_GT_lsct_share_tfe_hack,
-    neko_object320_feseq_wnaish_factory_cntr_lcam_lsct_share_tfe_hack_ind
-)
+
 
 # Project-Specific Imports: Agents
 from neko_2025_NGNW.common.agents.training_and_testing.neko_testing_core_agent import neko_task_testing_core_agent
@@ -69,8 +61,8 @@ class neko_object320_oscr_no_route_factory:
     def set_protofy_factory(this):
         this.protofy_factory=neko_as_prototype_factory(this.core.platform_cfg,this.core.gmodcfg,{});
 
-    def set_embedding_factory(this):
-        this.embedding_factory=neko_embedding_pool_aggr_part_factory(this.core.platform_cfg,this.core.gmodcfg,{});
+    # def set_embedding_factory(this):
+    #     this.embedding_factory=neko_embedding_pool_aggr_part_factory(this.core.platform_cfg,this.core.gmodcfg,{});
 
     def set_imcls_head_factory(this):
         this.imcls_head=neko_object320_osic_head_factory(this.core.platform_cfg,this.core.gmodcfg,{});
@@ -89,7 +81,7 @@ class neko_object320_oscr_no_route_factory:
     def mkfeseq_item(this)->neko_object320_feitem_factory:
         return neko_object320_feitem_factory(this.core,{});
     def mkfeseqcls_head(this):
-        return neko_ctc_roiseq_factory(this.core,{});
+        return None
     def mksemseg_head(this):
         return neko_dense_val_semseg_factory(this.core,{});
     def mkca_insseg_head(this):
@@ -97,19 +89,19 @@ class neko_object320_oscr_no_route_factory:
 
     def __init__(this, platform_cfg: neko_platform_cfg, params):
         this.core=this.mk_core(platform_cfg, params);
-        this.feseqf=this.mkfeseq_roiseq();
+        # this.feseqf=this.mkfeseq_roiseq();
         this.feitemf=this.mkfeseq_item();
         # this.fetfef=this.mkfetfe(); # this is to just make fe and tfe for sem/ins-seg.
-        this.seqcls_head=this.mkfeseqcls_head();
-        this.semseg_head=this.mksemseg_head(); # instance segmentation will have a different head, there will be a third head to combine both.
-        this.ordered_ca_insseg_head=this.mkca_insseg_head();
+        # this.seqcls_head=this.mkfeseqcls_head();
+        # this.semseg_head=this.mksemseg_head(); # instance segmentation will have a different head, there will be a third head to combine both.
+        # this.ordered_ca_insseg_head=this.mkca_insseg_head();
 
         # core stuff
         this.set_imcls_head_factory();
         this.set_xcts_factory();
         this.set_debugging_factory();
         this.set_protofy_factory();
-        this.set_embedding_factory();
+        # this.set_embedding_factory();
 
     def arm_data_mod_anchor(this):
         pass;
@@ -187,12 +179,12 @@ class neko_object320_oscr_no_route_factory:
             # normally, one data ep has its own modprfx, but if the use is sure enough two sources are close enough this can be shared.
             shared_mod_prefx = this.core.global_mod_prefix;
             modcfg, bogocfg = this.feseqf.arm_listim_roiseq_data_mod(modcfg, bogocfg,shared_mod_prefx,tome.data_seq_im_stream_handler_profiles[dpipe]);
-        for dpipe in tome.data_panoptic_im_stream_handler_profiles:
-            # normally, one data ep has its own modprfx, but if the use is sure enough two sources are close enough this can be shared.
-            shared_mod_prefx = this.core.global_mod_prefix;
-            modcfg, bogocfg = this.feseqf.arm_listim_roiseq_data_mod(modcfg, bogocfg, shared_mod_prefx,
-                                                                     tome.data_seq_im_stream_handler_profiles[
-                                                                         dpipe]);
+        # for dpipe in tome.data_panoptic_im_stream_handler_profiles:
+        #     # normally, one data ep has its own modprfx, but if the use is sure enough two sources are close enough this can be shared.
+        #     shared_mod_prefx = this.core.global_mod_prefix;
+        #     modcfg, bogocfg = this.feseqf.arm_listim_roiseq_data_mod(modcfg, bogocfg, shared_mod_prefx,
+        #                                                              tome.data_seq_im_stream_handler_profiles[
+        #                                                                  dpipe]);
 
             # there will be more complex logic once we move to the hybrid of word and char, especially after we have routing back
             # modcfg, bogocfg = this.arm_word_data_mod(modcfg, bogocfg,shared_mod_prefx,tome.data_item_im_stream_handler_profiles[dpipe]);
@@ -208,16 +200,16 @@ class neko_object320_oscr_no_route_factory:
 
         for task in tome.imcls_task_handlers:
             modcfg, bogocfg = this.arm_unique_mod_for_imcls_task(modcfg, bogocfg, tome.imcls_task_handlers[task]);
-        for task in tome.ordered_roiseq_task_handlers:
-            if(this.seqcls_head is None):
-                print("skipping cls, this is likly caused by a debugging panoptic seg branch");
-            else:
-                modcfg, bogocfg = this.seqcls_head.arm_unique_mod_for_seqcls_task(modcfg, bogocfg, tome.ordered_roiseq_task_handlers[task]);
-        for task in tome.semseg_task_handlers:
-            modcfg,bogocfg=this.semseg_head.arm_unique_mod_for_semseg_task(modcfg, bogocfg, tome.semseg_task_handlers[task]);
-        for task in tome.insseg_task_handlers:
-            modcfg, bogocfg = this.ordered_ca_insseg_head.arm_unique_mod_for_cains_task(modcfg, bogocfg,
-                                                                              tome.insseg_task_handlers[task]);
+        # for task in tome.ordered_roiseq_task_handlers:
+        #     if(this.seqcls_head is None):
+        #         print("skipping cls, this is likly caused by a debugging panoptic seg branch");
+        #     else:
+        #         modcfg, bogocfg = this.seqcls_head.arm_unique_mod_for_seqcls_task(modcfg, bogocfg, tome.ordered_roiseq_task_handlers[task]);
+        # for task in tome.semseg_task_handlers:
+        #     modcfg,bogocfg=this.semseg_head.arm_unique_mod_for_semseg_task(modcfg, bogocfg, tome.semseg_task_handlers[task]);
+        # for task in tome.insseg_task_handlers:
+        #     modcfg, bogocfg = this.ordered_ca_insseg_head.arm_unique_mod_for_cains_task(modcfg, bogocfg,
+        #                                                                       tome.insseg_task_handlers[task]);
 
         return modcfg, bogocfg;
 
@@ -405,8 +397,8 @@ class neko_object320_oscr_no_route_factory:
             awa.append_agent_to_cfg(tat,"payload",acfg);
             awa.append_agent_to_cfg(atea,task_data_prfx,tat);
 
-        for task_data_prfx in tome.semseg_task_handlers:
-            pass;
+        # for task_data_prfx in tome.semseg_task_handlers:
+        #     pass;
 
 
         return atea;

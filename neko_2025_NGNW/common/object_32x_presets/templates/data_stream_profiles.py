@@ -1,8 +1,7 @@
-from neko_2025_NGNW.misc_vibe_code.detr import BATCH_SIZE
 from neko_sdk.neko_framework_NG.names import P
 import os
 from neko_2025_NGNW.common.object_32x_presets.templates.data_diskcol_profile import neko_diskcol_template
-from neko_sdk.ocr_modules.sptokens import tSPLIT_OCR,tSPLIT_ITEM,tSPLIT_PANOPTIC
+from osocrNG.sptokens import tSPLIT_OCR,tSPLIT_ITEM,tSPLIT_PANOPTIC
 from typing import List, Optional, Dict, Any
 
 class neko_augcol_template:
