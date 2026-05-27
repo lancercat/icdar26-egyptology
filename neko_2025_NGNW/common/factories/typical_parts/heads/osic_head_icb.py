@@ -10,7 +10,7 @@ from neko_2025_NGNW.common.factories.open_set_classification import classificati
 
 from neko_sdk.neko_framework_NG.UAE.neko_agent_wrapping_agent import neko_agent_wrapping_agent as awa
 
-from neko_sdk.neko_framework_NG.agents.loss_util.aggr.averging import avging_loss_agent_mk2 as VN
+from neko_2025_NGNW.common.object_32x_presets.var_names import project_32x_varnames as VN
 from neko_2025_NGNW.common.object_32x_presets.agt_names import project_32x_agtnames as AN
 
 

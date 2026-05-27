@@ -454,10 +454,10 @@ class neko_32x_training_data_loader_agent_factory(neko_32x_data_loader_agent_fac
         this.bootstrap();
         this.mldrf=this.MLDRF();
         this.im_text_dldrf=this.IM_TEXT_DLDRF();
-        this.panoptic_dldrf = this.PANOPTIC_DLDRF();
+        # this.panoptic_dldrf = this.PANOPTIC_DLDRF();
 
-        this.lsctf=this.LSCT_SHAD();
-        this.lsct_rand_f=this.LSCTC_RAND();
+        # this.lsctf=this.LSCT_SHAD();
+        # this.lsct_rand_f=this.LSCTC_RAND();
 
 
     # this will need to wait. We don't fetch here... we fetch when meta is loaded.

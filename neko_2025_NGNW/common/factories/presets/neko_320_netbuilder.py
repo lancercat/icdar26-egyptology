@@ -241,21 +241,21 @@ class neko_object320_oscr_no_route_factory:
         tacfg=awa.empty();
         for task_name in tome.imcls_task_handlers:
             tacfg=this.arm_one_oscr_task_training_agent(tacfg, tome.imcls_task_handlers[task_name]);
-        for task_name in tome.xtcs_task_handlers:
-            tacfg=this.xcts_factory.arm_training_agent(tacfg,tome.xtcs_task_handlers[task_name])
-        for task_name in tome.ordered_roiseq_task_handlers:
-            # note it needs data_seq_im_stream_handler_profiles head to provide tfe
-            # you cannot apply this to item stream
-            if(this.seqcls_head is None):
-                print("skipping cls, this is likly caused by a debugging panoptic seg branch");
-            else:
-                tacfg=this.seqcls_head.arm_training_and_pred_agents(tacfg,tome.ordered_roiseq_task_handlers[task_name]);
-        for task_name in tome.semseg_task_handlers:
-            tacfg=this.semseg_head.arm_training_and_pred_agents(tacfg,tome.semseg_task_handlers[task_name]);
-        for task_name in tome.insseg_task_handlers:
-            # note it needs data_seq_im_stream_handler_profiles head to provide tfe
-            # you cannot apply this to item stream
-            tacfg = this.ordered_ca_insseg_head.arm_training_and_pred_agents(tacfg, tome.insseg_task_handlers[task_name]);
+        # for task_name in tome.xtcs_task_handlers:
+        #     tacfg=this.xcts_factory.arm_training_agent(tacfg,tome.xtcs_task_handlers[task_name])
+        # for task_name in tome.ordered_roiseq_task_handlers:
+        #     # note it needs data_seq_im_stream_handler_profiles head to provide tfe
+        #     # you cannot apply this to item stream
+        #     if(this.seqcls_head is None):
+        #         print("skipping cls, this is likly caused by a debugging panoptic seg branch");
+        #     else:
+        #         tacfg=this.seqcls_head.arm_training_and_pred_agents(tacfg,tome.ordered_roiseq_task_handlers[task_name]);
+        # for task_name in tome.semseg_task_handlers:
+        #     tacfg=this.semseg_head.arm_training_and_pred_agents(tacfg,tome.semseg_task_handlers[task_name]);
+        # for task_name in tome.insseg_task_handlers:
+        #     # note it needs data_seq_im_stream_handler_profiles head to provide tfe
+        #     # you cannot apply this to item stream
+        #     tacfg = this.ordered_ca_insseg_head.arm_training_and_pred_agents(tacfg, tome.insseg_task_handlers[task_name]);
 
         acfg=awa.append_agent_to_cfg(acfg,"tasks",tacfg);
         acfg = awa.append_agent_to_cfg(acfg, "bp", get_neko_basic_backward_all_agent());
