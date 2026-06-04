@@ -76,7 +76,7 @@ class neko_object320_oscr_no_route_factory:
         return neko_object320_factory_core_ffn(platform_cfg, params);
     # templates are no longer registered here.
 
-    def mkfeseq_roiseq(this) -> neko_object320_feseq_factory_abstract:
+    def mkfeseq_roiseq(this) :
         fatal("not impl")
     def mkfeseq_item(this)->neko_object320_feitem_factory:
         return neko_object320_feitem_factory(this.core,{});
