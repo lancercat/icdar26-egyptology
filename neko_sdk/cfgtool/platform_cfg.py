@@ -3,7 +3,8 @@ import os
 
 from neko_sdk.environment.root import find_data_root
 from neko_sdk.cfgtool.argsparse import neko_get_arg
-
+import torch
+torch.multiprocessing.set_sharing_strategy('file_system')
 class neko_platform_cfg:
     PARAM_data_root="data_root";
     PARAM_save_root = "save_root";
