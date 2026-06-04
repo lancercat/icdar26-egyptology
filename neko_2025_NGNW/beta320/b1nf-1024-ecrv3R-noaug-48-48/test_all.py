@@ -30,7 +30,7 @@ if __name__ == '__main__':
     # with torch.autocast(device_type=pcfg.devices[0], dtype=torch.float16, enabled=True):
     ars={};
     for iterk in ITRS:
-        logpath = os.path.join("/run/media/lasercat/writebuffer/tmp/hydra_results/", curname+iterk);
+        logpath = os.path.join("/home/lasercat/writebuffer/tmp/hydra_results/", curname+iterk);
         shutil.rmtree(logpath, ignore_errors=True);
         os.makedirs(logpath)
         te = get_tea(pcfg, tome, 0, 0, logpath);
@@ -39,4 +39,4 @@ if __name__ == '__main__':
         ars[iterk]=rds;
         pass;
 
-    torch.save(ars,os.path.join("/run/media/lasercat/writebuffer/tmp/hydra_results/", curname+".pt"));
+    torch.save(ars,os.path.join("/home/lasercat/writebuffer/tmp/hydra_results/", curname+".pt"));

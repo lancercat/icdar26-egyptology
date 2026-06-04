@@ -164,4 +164,4 @@ if __name__ == '__main__':
             traceback.print_exc() # Print full traceback for debugging
 
         print("--- Verification Finished ---")
-    verify("/run/media/lasercat/writebuffer/handy_tests/");
+    verify("/home/lasercat/writebuffer/handy_tests/");

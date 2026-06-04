@@ -218,7 +218,7 @@ if __name__ == '__main__':
     }
     e=executer();
     e.eval_batch(MD);
-    rd=collect_results("/run/media/lasercat/writebuffer/tmp/hydra_results_icdar26/",resd=RESD);
+    rd=collect_results("/home/lasercat/writebuffer/tmp/hydra_results_icdar26/",resd=RESD);
     sd=generate_stats(rd);
     stats_tex = export_stats_commands(sd, PK_LATEX, RESD.keys());
     raw_tex = export_raw_commands(rd, PK_LATEX, ITRS_LATEX, RESD)

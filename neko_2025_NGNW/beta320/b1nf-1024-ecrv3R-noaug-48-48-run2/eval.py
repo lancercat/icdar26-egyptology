@@ -37,14 +37,14 @@ if __name__ == '__main__':
     curname=os.path.basename(os.getcwd());
 
 
-    save_path = os.path.join("/run/media/lasercat/writebuffer/tmp/hydra_results_icdar26/", curname + ".pt");
+    save_path = os.path.join("/home/lasercat/writebuffer/tmp/hydra_results_icdar26/", curname + ".pt");
     # --- CHECK IF PT FILE EXISTS ---
     if os.path.exists(save_path):
         print(f"Skipping: {save_path} already exists.")
         sys.exit(0)  # Or return if inside a function
     ars = {};
     for iterk in ITRS:
-        logpath = os.path.join("/run/media/lasercat/writebuffer/tmp/hydra_results_icdar26/", curname + iterk);
+        logpath = os.path.join("/home/lasercat/writebuffer/tmp/hydra_results_icdar26/", curname + iterk);
         shutil.rmtree(logpath, ignore_errors=True);
         os.makedirs(logpath)
         te = get_tea(pcfg, tome, 0, 0, logpath);
@@ -53,5 +53,5 @@ if __name__ == '__main__':
         ars[iterk] = rds;
         pass;
 
-    torch.save(ars, os.path.join("/run/media/lasercat/writebuffer/tmp/hydra_results_icdar26/", curname + ".pt"));
+    torch.save(ars, os.path.join("/home/lasercat/writebuffer/tmp/hydra_results_icdar26/", curname + ".pt"));
 

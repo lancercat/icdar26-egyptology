@@ -138,7 +138,7 @@ if __name__ == '__main__':
     from neko_2024_NGNW.nets_v6.anchors import get_wna_v6_dcfg_1h1v1r_2_05_smol as trdcfg
     agte=neko_sync_balance_fetching_and_mixing_agent
     acfg=agte.get_agtcfg(
-        "image","text",trdcfg(24),"/run/media/lasercat/writebuffer/tmp/tmpidx.pt",["rctwtrdb_seen"],
+        "image","text",trdcfg(24),"/home/lasercat/writebuffer/tmp/tmpidx.pt",["rctwtrdb_seen"],
             ["/home/lasercat/ssddata/rctwtrdb_seen"]
         ,9
     );
